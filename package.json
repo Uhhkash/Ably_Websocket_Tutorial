@@ -1,0 +1,24 @@
+{
+  "name": "ably-next-vercel-news",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "ably": "^2.4.0",
+    "next": "14.2.13",
+    "open-graph-scraper": "^6.8.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "unique-names-generator": "^4.7.1",
+    "url-exists-nodejs": "^0.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.13"
+  }
+}
