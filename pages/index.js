@@ -7,6 +7,14 @@ import Articles from '../components/Articles';
 import { getHistoricalMessages } from '../lib/history';
 
 export default function Home(props) {
+  const handleEvent2Click = async () => {
+    await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'event-2', text: 'This is a permanent text box for Event 2!' }),
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,44 +24,18 @@ export default function Home(props) {
       </Head>
 
       <main className={styles.main}>
-        <Image alt="ably logo" src={ablyLogo} width="160px" height="100%"></Image>
+        <Image alt="ably logo" src={ablyLogo} width="160px" height="100%" />
         <h1>Chaos Engine</h1>
         <h3>Participants</h3>
         <Participants />
         <Articles history={props.history} />
       </main>
 
-      {/* Sidebar for buttons */}
       <div className={styles.sidebar}>
-        <button className={styles.button}>Clear Worlds</button>
-        <button className={styles.button}>Add World Effect</button>
-        <button className={styles.button}>Get Combat Effect</button>
-        <button className={styles.button}>Get Personal Effect</button>
+        <button className={styles.button} onClick={handleEvent2Click}>
+          Event 2
+        </button>
       </div>
-
-      <style jsx>{`
-        .${styles.sidebar} {
-          position: absolute;
-          right: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-        }
-        .${styles.button} {
-          padding: 10px 20px;
-          background-color: #0070f3;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-        }
-        .${styles.button}:hover {
-          background-color: #005bb5;
-        }
-      `}</style>
     </div>
   );
 }
@@ -65,7 +47,6 @@ export async function getStaticProps() {
     props: {
       history: historicalMessages,
     },
-    //enable ISR
     revalidate: 10,
   };
 }
