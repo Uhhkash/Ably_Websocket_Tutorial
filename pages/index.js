@@ -23,6 +23,66 @@ export default function Home(props) {
     }
   };
 
+  const handleAddWorldEffectClick = async () => {
+    try {
+      const response = await fetch('/api/random-world', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const randomWorldText = data.text;
+
+        // Publish the random world effect text as an event
+        await handleEventClick('event-2', randomWorldText);
+      } else {
+        console.error('Failed to fetch random world:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error fetching random world:', error);
+    }
+  };
+
+  const handleAddPersonalEffectClick = async () => {
+    try {
+      const response = await fetch('/api/random-personals', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const randomPersonalText = data.text;
+
+        // Publish the random personal effect text as an event
+        await handleEventClick('event-3', randomPersonalText);
+      } else {
+        console.error('Failed to fetch random personal effect:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error fetching random personal effect:', error);
+    }
+  };
+
+  const handleAddCombatEffectClick = async () => {
+    try {
+      const response = await fetch('/api/random-combats', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const randomCombatText = data.text;
+
+        // Publish the random combat effect text as an event
+        await handleEventClick('event-4', randomCombatText);
+      } else {
+        console.error('Failed to fetch random combat effect:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error fetching random combat effect:', error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -42,21 +102,21 @@ export default function Home(props) {
       <div className={styles.sidebar}>
         <button
           className={styles.button}
-          onClick={() => handleEventClick('event-2', 'This is a permanent text box for Event 2!')}
+          onClick={handleAddWorldEffectClick}
         >
-          Event 2
+          Add World Effect
         </button>
         <button
           className={styles.button}
-          onClick={() => handleEventClick('event-3', 'This is a permanent text box for Event 3!')}
+          onClick={handleAddPersonalEffectClick}
         >
-          Event 3
+          Get Personal Effect
         </button>
         <button
           className={styles.button}
-          onClick={() => handleEventClick('event-4', 'This is a permanent text box for Event 4!')}
+          onClick={handleAddCombatEffectClick}
         >
-          Event 4
+          Get Combat Effect
         </button>
       </div>
     </div>
