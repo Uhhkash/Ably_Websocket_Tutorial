@@ -17,12 +17,43 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <Image alt="ably logo" src={ablyLogo} width="160px" height="100%"></Image>
-        <h1>Realtime News</h1>
-        <h2>Share your favorite news articles</h2>
+        <h1>Chaos Engine</h1>
         <h3>Participants</h3>
         <Participants />
         <Articles history={props.history} />
       </main>
+
+      {/* Sidebar for buttons */}
+      <div className={styles.sidebar}>
+        <button className={styles.button}>Clear Worlds</button>
+        <button className={styles.button}>Add World Effect</button>
+        <button className={styles.button}>Get Combat Effect</button>
+        <button className={styles.button}>Get Personal Effect</button>
+      </div>
+
+      <style jsx>{`
+        .${styles.sidebar} {
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+        .${styles.button} {
+          padding: 10px 20px;
+          background-color: #0070f3;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        .${styles.button}:hover {
+          background-color: #005bb5;
+        }
+      `}</style>
     </div>
   );
 }
