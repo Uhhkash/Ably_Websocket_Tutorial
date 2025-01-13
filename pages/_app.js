@@ -14,7 +14,9 @@ export default function App({ Component, pageProps }) {
   return (
     <AblyProvider client={client}>
       <ChannelProvider channelName="headlines" options={{ params: { rewind: '5' } }}>
+      <ChannelProvider channelName="combat-effects" options={{ params: { rewind: '5' } }}>
         <Component {...pageProps} />;
+        </ChannelProvider>
       </ChannelProvider>
     </AblyProvider>
   );
