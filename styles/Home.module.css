@@ -188,3 +188,9 @@
 .button:hover {
   background-color: #005bb5;
 }
+
+.buttonContainer {
+  display: flex;
+  gap: 10px; /* Adds space between buttons */
+}
+

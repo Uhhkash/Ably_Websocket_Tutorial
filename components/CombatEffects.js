@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useChannel } from 'ably/react';
 import styles from '../styles/Home.module.css';
 
@@ -35,13 +35,41 @@ export default function CombatEffect() {
     }
   };
 
+  const clearCombatEffect = async () => {
+    try {
+      // Send a clear request to the API
+      const response = await fetch('/api/random-combat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'clear' }),
+      });
+
+      if (response.ok) {
+        // Publish the cleared state to the `combat-effects` channel
+        const channel = ably.channels.get('combat-effects');
+        await channel.publish('clear-combat-effect', { text: '' });
+
+        setCombatEffect(null); // Clear the local state
+      } else {
+        console.error('Failed to clear combat effect:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error clearing combat effect:', error);
+    }
+  };
+
   return (
     <div className={styles.effectBox}>
       <h3>Combat Effect</h3>
       {combatEffects && <p>{combatEffects}</p>}
-      <button className={styles.button} onClick={fetchCombatEffect}>
-        Add Combat Effect
-      </button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button} onClick={fetchCombatEffect}>
+          Add Combat Effect
+        </button>
+        <button className={styles.button} onClick={clearCombatEffect}>
+          Clear Combat Effect
+        </button>
+      </div>
     </div>
   );
 }
