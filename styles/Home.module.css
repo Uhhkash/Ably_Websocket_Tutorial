@@ -193,4 +193,42 @@
   display: flex;
   gap: 10px; /* Adds space between buttons */
 }
+.textBox {
+  width: 100%; /* Adjust width to fit your layout */
+  height: 100px; /* Fixed height for the text box */
+  border: 1px solid #ccc; /* Border for the box */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Inner spacing */
+  overflow-y: auto; /* Scrollbar if content exceeds height */
+  background-color: #3b3b3b; /* Light background for contrast */
+  font-size: 16px; /* Adjust text size */
+  color: #ccc; /* Text color */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text vertically and horizontally */
+  text-align: center; /* Center text */
+  box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+}
 
+
+/* Home.module.css */
+.title {
+  font-family: "Cinzel Decorative", serif; /* Apply the font */
+  font-weight: 400; /* Regular weight by default */
+  font-style: normal; /* Ensure no italics */
+  font-size: 2.5rem; /* Adjust font size */
+  color: white; /* Optional: Add color */
+}
+
+/* Optional: Define specific variants for different weights */
+.title.bold {
+  font-weight: 700; /* Bold */
+}
+
+.title.black {
+  font-weight: 900; /* Black */
+}
+.diceResult {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}

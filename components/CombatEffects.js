@@ -61,7 +61,9 @@ export default function CombatEffect() {
   return (
     <div className={styles.effectBox}>
       <h3>Combat Effect</h3>
-      {combatEffects && <p>{combatEffects}</p>}
+      <div className={styles.textBox}>
+        {combatEffects ? combatEffects : null } {/* Placeholder when empty */}
+      </div>
       <div className={styles.buttonContainer}>
         <button className={styles.button} onClick={fetchCombatEffect}>
           Add Combat Effect
@@ -72,4 +74,5 @@ export default function CombatEffect() {
       </div>
     </div>
   );
+  
 }

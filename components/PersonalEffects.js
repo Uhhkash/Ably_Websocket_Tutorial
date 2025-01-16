@@ -60,16 +60,19 @@ export default function PersonalEffect() {
 
   return (
     <div className={styles.effectBox}>
-    <h3>Personal Effect</h3>
-    {personalEffects && <p>{personalEffects}</p>}
-    <div className={styles.buttonContainer}>
-      <button className={styles.button} onClick={fetchPersonalEffect}>
-        Add Personal Effect
-      </button>
-      <button className={styles.button} onClick={clearPersonalEffect}>
-        Clear Personal Effect
-      </button>
+      <h3>Personal Effect</h3>
+      <div className={styles.textBox}>
+        {personalEffects ? personalEffects : null} {/* Placeholder when empty */}
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button} onClick={fetchPersonalEffect}>
+          Add Personal Effect
+        </button>
+        <button className={styles.button} onClick={clearPersonalEffect}>
+          Clear Personal Effect
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+  
 }

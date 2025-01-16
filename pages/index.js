@@ -1,19 +1,20 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useState } from 'react';
-import ablyLogo from '../public/ably-logo.svg';
 import styles from '../styles/Home.module.css';
 import Participants from '../components/Participants';
 import { getHistoricalMessages } from '../lib/history';
 import CombatEffect from '../components/CombatEffects';
 import WorldEffect from '@/components/WorldEffects';
 import PersonalEffect from '@/components/PersonalEffects';
+import RealTimeDice from '@/components/Dice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDragon } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home(props) {
+  
   const [combatEffect, setCombatEffect] = useState(null); // Tracks the current combat effect
   const [personalEffect, setPersonalEffect] = useState(null); // Tracks the current personal effect
   const [worldEffects, setWorldEffects] = useState([]); // Tracks the current world effects
-  const [diceRoll, setDiceRoll] = useState(null); // Tracks the result of the dice roll
 
   return (
     <div className={styles.container}>
@@ -25,7 +26,7 @@ export default function Home(props) {
 
       {/* Header Section */}
       <header className={styles.header}>
-        <Image alt="ably logo" src={ablyLogo} width="60px" height="60px" />
+      <FontAwesomeIcon icon={faDragon} size="3x" /> {/* Use the imported icon */}
         <h1 className={styles.title}>Chaos Engine</h1>
       </header>
 
@@ -50,6 +51,7 @@ export default function Home(props) {
 
       {/* Participants Section */}
       <div className={styles.participants}>
+        <RealTimeDice/>
         <Participants />
       </div>
     </div>
