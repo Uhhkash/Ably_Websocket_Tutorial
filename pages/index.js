@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 import Participants from '../components/Participants';
 import { getHistoricalMessages } from '../lib/history';
@@ -11,10 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDragon } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home(props) {
-  
-  const [combatEffect, setCombatEffect] = useState(null); // Tracks the current combat effect
-  const [personalEffect, setPersonalEffect] = useState(null); // Tracks the current personal effect
-  const [worldEffects, setWorldEffects] = useState([]); // Tracks the current world effects
 
   return (
     <div className={styles.container}>
@@ -35,16 +30,12 @@ export default function Home(props) {
         <div className={styles.effects}>
           <div className={styles.effectBox}>
             <WorldEffect />
-            {worldEffects.map((effect, index) => (
-              <p key={index}>{effect}</p>
-            ))}
           </div>
           <div className={styles.effects}>
             <CombatEffect /> {/* Add the CombatEffect component */}
           </div>
           <div className={styles.effectBox}>
             <PersonalEffect/>
-            {personalEffect && <p>{personalEffect}</p>}
           </div>
         </div>
       </main>
