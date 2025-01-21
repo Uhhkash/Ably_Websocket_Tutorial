@@ -61,8 +61,8 @@ export default function WorldEffect() {
   return (
     <div className={styles.effectBox}>
       <h3>World Effect</h3>
-      <div className={styles.textBox}>
-        {worldEffects ? worldEffects : null } {/* Placeholder when empty */}
+      <div className={styles.worldBox}>
+        {worldEffects ? worldEffects : null} {/* Placeholder when empty */}
       </div>
       <div className={styles.buttonContainer}>
         <button className={styles.button} onClick={fetchWorldEffect}>
@@ -74,5 +74,4 @@ export default function WorldEffect() {
       </div>
     </div>
   );
-  
 }

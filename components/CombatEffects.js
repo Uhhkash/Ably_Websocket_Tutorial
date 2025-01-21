@@ -61,7 +61,7 @@ export default function CombatEffect() {
   return (
     <div className={styles.effectBox}>
       <h3>Combat Effect</h3>
-      <div className={styles.textBox}>
+      <div className={styles.combatText}>
         {combatEffects ? combatEffects : null } {/* Placeholder when empty */}
       </div>
       <div className={styles.buttonContainer}>

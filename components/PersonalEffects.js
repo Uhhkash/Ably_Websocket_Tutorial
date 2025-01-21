@@ -61,7 +61,7 @@ export default function PersonalEffect() {
   return (
     <div className={styles.effectBox}>
       <h3>Personal Effect</h3>
-      <div className={styles.textBox}>
+      <div className={styles.personalText}>
         {personalEffects ? personalEffects : null} {/* Placeholder when empty */}
       </div>
       <div className={styles.buttonContainer}>

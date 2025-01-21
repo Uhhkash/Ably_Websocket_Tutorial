@@ -24,16 +24,14 @@ export default function RealTimeDice() {
   };
 
   return (
-    <div className={styles.effectBox}>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={rollDice}>
-          <FontAwesomeIcon icon={faDice} size="3x" /> {/* Dice icon as the button */}
-        </button>
-      </div>
+    <div>
+      <button onClick={rollDice} style={{ background: 'none', border: 'none' }}>
+        <FontAwesomeIcon icon={faDice} size="3x" style={{ color: 'white' }} /> {/* Dice icon as the button */}
+      </button>
       {diceRoll !== null && (
-        <div className={styles.diceResult}>
-          <p>{diceRoll}</p> {/* Display the rolled number below the icon */}
-        </div>
+        <p style={{ color: 'white', fontSize: '1.5rem', fontWeight: 'bold' }}>
+          {diceRoll}
+        </p>
       )}
     </div>
   );
