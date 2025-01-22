@@ -59,17 +59,19 @@ export default function WorldEffect() {
   };
 
   return (
-    <div className={styles.effectBox}>
+    <div className={styles.worldEffectContainer}>
       <h3>World Effect</h3>
       <div className={styles.worldBox}>
         {worldEffects ? worldEffects : null} {/* Placeholder when empty */}
       </div>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={fetchWorldEffect}>
-          Add World Effect
-        </button>
-        <button className={styles.button} onClick={clearWorldEffect}>
+      
+      {/* Move buttons below the text box */}
+      <div className={styles.effectButtonsContainer}>
+        <button className={styles.clearWorldButton} onClick={clearWorldEffect}>
           Clear World Effect
+        </button>
+        <button className={styles.addWorldButton} onClick={fetchWorldEffect}>
+          Add World Effect
         </button>
       </div>
     </div>

@@ -243,3 +243,42 @@
   align-items: center; /* Vertically align the components in the center */
 }
 
+
+.effectButtonsContainer {
+  display: flex; /* Use flexbox for side-by-side layout */
+  gap: 20px; /* Gap between the buttons */
+  margin-left: 20px; /* Space from the left side of the screen */
+}
+
+.clearWorldButton {
+  background-color: #0070f3; /* Blue */
+  color: white;
+  padding: 15px 30px; /* Increased padding for bigger button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  flex: 1; /* Buttons will have equal width */
+  min-width: 200px; /* Ensure the buttons are longer */
+}
+
+.clearWorldButton:hover {
+  background-color: #005bb5; /* Darker blue on hover */
+}
+
+.addWorldButton {
+  background-color: #0070f3; /* Lighter blue */
+  color: white;
+  padding: 15px 30px; /* Increased padding for bigger button */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  flex: 1; /* Buttons will have equal width */
+  min-width: 200px; /* Ensure the buttons are longer */
+}
+
+.addWorldButton:hover {
+  background-color: #005bb5; /* Darker blue on hover */
+}
+
